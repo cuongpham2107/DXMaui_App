@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:DXMaui_App.Views"
+       xmlns:effects="clr-namespace:DXMaui_App.Effects"
+       effects:InitializeEffectsEffect.Init="true"
+       Shell.ItemTemplate="{StaticResource ShellMenuItemTemplate}"
+       Shell.MenuItemTemplate="{StaticResource ShellMenuItemTemplate}"
+       xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+       ios:Page.UseSafeArea="true"
+       x:Class="DXMaui_App.Views.MainPage">
+    <MenuItem Text="Close" IconImageSource="close" Clicked="OnCloseClicked"/>
+
+    <ShellContent Title="About" Icon="about"
+                  ContentTemplate="{DataTemplate local:AboutPage}"
+                  Route="DXMaui_App.Views.AboutPage"/>
+
+    <ShellContent Title="Browse" Icon="browse"
+                  ContentTemplate="{DataTemplate local:ItemsPage}" />
+    
+    <ShellContent Title="DataGrid" Icon="grid"
+                  ContentTemplate="{DataTemplate local:DataGridPage}"/>
+    <ShellContent Title="Popup" Icon="popup"
+                  ContentTemplate="{DataTemplate local:PopupPage}" />
+    
+    <MenuItem Text="Logout" IconImageSource="logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked"/>
+
+    <TabBar>
+        <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+    </TabBar>    
+</Shell>
